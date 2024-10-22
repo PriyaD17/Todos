@@ -39,8 +39,8 @@ function Enter(){
 
 
       <div>
-
-        <br /><br /><br />
+<br />
+        <hr />
 
         <h3>TODO List</h3>
         <ul>
