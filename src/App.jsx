@@ -18,12 +18,18 @@ function Enter(){
 
   const addtodo=()=> {
     if(task && desc){
-      const newtodo= { task, desc};
+      const newtodo= { task, desc, completed:false};
       setTodo([...todo,newtodo]);
       setTask('');
       setDesc('');
     }
   }
+  const toggleComplete = (index) => {
+    const updatedTodos = todo.map((onetodo, i) =>
+      i === index ? { ...onetodo, completed: !onetodo.completed } : onetodo
+    );
+    setTodo(updatedTodos); 
+  };
 
   return(
     <div>
@@ -45,9 +51,12 @@ function Enter(){
         <h3>TODO List</h3>
         <ul>
           {todo.map((onetodo,index) => 
-         ( <li key={index}>
+         ( <li key={index} className={onetodo.completed ? 'completed' : ''}>
             <strong> {onetodo.task}</strong>: {onetodo.desc}
-          </li>
+            <button className="complete-btn" onClick={() => toggleComplete(index)}>
+              {onetodo.completed ? 'Undo' : 'Mark As Done'}
+              </button>
+          </li> 
           ))}
         </ul>
       </div>

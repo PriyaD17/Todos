@@ -95,6 +95,10 @@ li {
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+li.completed {
+  text-decoration: line-through;
+  color: gray;
+}
 
 li strong {
   color: #007bff;
